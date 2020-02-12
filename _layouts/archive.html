@@ -2,7 +2,18 @@
 layout: page
 ---
 {{ content }}
-{{ site.collections.files }}篇博文。长路漫漫！
+{% if site.archive.posts_count.enable %}
+{{ site.posts.size }}{{ site.archive.posts_count.alert }}
+{% endif %}
+<ul>
+  {% for post in site.posts %}
+  <li>
+    <small>{{ post.date | date_to_string }}</small>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
 
 {% assign all_categories = site.collections.files | map: "category" %}
 

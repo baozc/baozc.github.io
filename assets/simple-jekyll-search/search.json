@@ -2,7 +2,7 @@
 layout: null
 ---
 [
-  {% if site.sidebar.simple_jekyll_search.enable %}
+  {% if site.page.sidebar.simple_jekyll_search.enable %}
     {% for c in site.collections %}
       {% for post in c.docs %}
         {

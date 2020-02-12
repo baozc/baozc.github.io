@@ -93,7 +93,7 @@
 title: 越努力，越幸运
 description: | # 不知道怎么写介绍，放个音乐吧
   <iframe
-    src="https://music.163.com/outchain/player?type=0&id=155059595&auto=0&height=32"
+    src="https://music.163.com/outchain/player?type=0&id=44133222&auto=0&height=32"
     width=100%
     height=52
     frameborder="no"
@@ -101,7 +101,7 @@ description: | # 不知道怎么写介绍，放个音乐吧
     marginwidth="0"
     marginheight="0"
   ></iframe>
-url: https://wu-kan.cn # https://wu-kan.github.io
+url: https://bazc.github.io # https://wu-kan.github.io
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/assets`前也要加，即`/your_baseurl/assets`。这一项结尾不要有'/'。
 
 markdown: kramdown
@@ -247,33 +247,35 @@ page:
   sidebar:
     avatar: # 侧边栏显示的头像
       enable: true
-      img: https://gravatar.loli.net/avatar/a12c5fff23dde00df79af9aca4e7b6e4?s=300 # 头像的地址
+      img: https://cdn.jsdelivr.net/gh/baozc/baozc.github.io/assets/IMG_0043.JPG # 头像的地址
       info: | # 头像背后的信息，<br/>代表换行
         <br/>一个普通的码农
         <br/>java开发
+    # 社交信息，在左侧栏头像下面展示的，可自定义添加/删除
     social:
-      - title: rss
-        href: /assets/jekyll-sitemaps/atom.xml
-        class: "fas fa-rss"
-      - title: wu.kan@foxmail.com # email
-        href: mailto:wu.kan@foxmail.com
+      # - title: rss
+      #   href: /assets/jekyll-sitemaps/atom.xml
+      #   class: "fas fa-rss"
+      - title: bao19901210@163.com # email
+        href: mailto:bao19901210@163.com
         class: "fas fa-envelope"
       - title: github
-        href: https://github.com/wu-kan
+        href: https://github.com/baozc
         class: "fab fa-github"
-      - title: WuK # codeforces
-        href: https://codeforces.com/profile/WuK
-        class: "fas fa-chart-bar fw"
-      - title: WuK # vjudge
-        href: https://vjudge.net/user/WuK
-        class: "fas fa-smile"
-      - title: 942759535 # qq
+      # - title: WuK # codeforces
+      #   href: https://codeforces.com/profile/WuK
+      #   class: "fas fa-chart-bar fw"
+      # - title: WuK # vjudge
+      #   href: https://vjudge.net/user/WuK
+      #   class: "fas fa-smile"
+      - title: 531559162 # qq
         class: "fab fa-qq"
-      - title: Wu-_-Kan # weixin
+      - title: 18911628753 # weixin
         class: "fab fa-weixin"
-      - title: zhihu
-        href: https://www.zhihu.com/people/wu.kan/activities
-        class: "fab fa-zhihu"
+      # - title: zhihu
+      #   href: https://www.zhihu.com/people/wu.kan/activities
+      #   class: "fab fa-zhihu"
+  # 左侧栏，导航
     nav:
       - title: '<i class="fas fa-home fa-fw"></i> 首页'
         href: /
@@ -304,6 +306,7 @@ page:
               fuzzy: true
             })'
         ></script>
+    # 目录结构，TOC
     alert: |
       <div>
         目录
@@ -317,11 +320,11 @@ page:
       </div>
       <div>
         <i class="fab fa-github-alt fa-fw"></i>
-        <a href="https://github.com/wu-kan/wu-kan.github.io">
-          <img src="https://img.shields.io/github/stars/wu-kan/wu-kan.github.io.svg" style="display:inline;margin-bottom:0;"/>
+        <a href="https://github.com/baozc/baozc.github.io">
+          <img src="https://img.shields.io/github/stars/baozc/baozc.github.io.svg" style="display:inline;margin-bottom:0;"/>
         </a>
-        <a href="https://github.com/wu-kan/wu-kan.github.io/fork">
-          <img src="https://img.shields.io/github/forks/wu-kan/wu-kan.github.io.svg" style="display:inline;margin-bottom:0;"/>
+        <a href="https://github.com/wu-kan/baozc/baozc.github.io/fork">
+          <img src="https://img.shields.io/github/forks/baozc/baozc.github.io.svg" style="display:inline;margin-bottom:0;"/>
         </a>
       </div>
       <div>
@@ -361,7 +364,7 @@ page:
             document.getElementById("run_time_hour").innerHTML = setzero(hrsold);
             document.getElementById("run_time_minute").innerHTML = setzero(minsold);
             document.getElementById("run_time_second").innerHTML = setzero(seconds);
-          }, 1000, "10/04/2017 11:03:56") // 这是我第一篇CSDN博客的时间
+          }, 1000, "20/03/2013 12:59:25") // 这是我第一篇CSDN博客的时间
         </script>
       </div>
       <div>
@@ -825,6 +828,6 @@ page:
 collections_dir: notes
 
 collections:
-java:
-  # date: 2019-10-13
-  output: true
+    java:
+      # date: 2019-10-13
+      output: true

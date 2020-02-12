@@ -1,6 +1,6 @@
 ---
 layout: index
-title: 今、情热が岚になって
+title: マノンのブログ
 ---
 <!-- bundle exec jekyll server --trace -->
 <!-- ## Contact
