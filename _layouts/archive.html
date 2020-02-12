@@ -1,0 +1,48 @@
+---
+layout: page
+---
+{{ content }}
+{{ site.collections.files }}篇博文。长路漫漫！
+
+{% assign all_categories = site.collections.files | map: "category" %}
+
+{% for item in all_categories %}
+{{ item }}
+{% endfor %}
+
+{% assign my_int = 0 %}
+
+{% for c in site.collections %}
+
+<!-- 一级目录文件名和数量 -->
+<h2 id="{{c.label}}">{{c.label}}({{c.docs.size}})</h2>
+<ul>
+  <ul>
+    <!-- {% assign category = c.docs.first.category %} -->
+    {% assign category = "test" %}
+
+    {% for doc in c.docs reversed %}
+
+      {% if category != doc.category %}
+        </ul>
+        {% assign category = doc.category %}
+        <!-- 二级目录分类名 -->
+        <h3>
+          {{ category }}
+          <!-- ({{ my_int }}) -->
+        </h3>
+        <ul>
+      {% else %}
+        {% assign my_int = my_int | plus: 1 %}
+        <!-- {{ my_int }} -->
+      {% endif %}
+
+      <li>
+        <a href="{{ doc.url }}">{{ doc.title }} </a>
+        <!-- <small>{{ doc.date | date_to_string }}</small> -->
+      </li>
+
+    {% endfor %}
+    </ul>
+</ul>
+{% endfor %}

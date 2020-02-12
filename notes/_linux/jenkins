@@ -1,0 +1,7 @@
+## 启动Jenkins
+> `java -jar jenkins --httpPort=8080`   
+> 访问时路径 `http://localhost:8080`   
+> 使用tomcat启动，把jenkins war包放到webapps中，启动tomcat   
+> 在第一次启动时，会生成默认密码   
+> Windows中存储在**C:\\Users\\baozc\\.jenkins\\secrets**   
+> Linux 中存储在**/root/.jenkins/secrets/initialAdminPassword**

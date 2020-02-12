@@ -1,0 +1,33 @@
+@startuml
+card card1 #F6E5E4{
+ component logstash1
+}
+card card2 #F6E5E4{
+ component logstash2
+}
+card card3 #F6E5E4{
+ component logstash3
+}
+
+queue kafka #BAD28F
+
+component logstash
+storage storm #A48EBC
+
+component elasticsearch #F5AA6E
+database hbase #86A4CF
+
+card1 --> kafka
+card2 --> kafka
+card3 --> kafka
+
+kafka --> logstash
+kafka --> storm
+
+logstash --> hbase: 原始数据
+storm --> elasticsearch: 指标结果
+storm --> elasticsearch: trace数据
+
+note bottom of hbase: 1. 通过AGENT生成调用链日志。\n2. 通过logstash采集日志到kafka。\n3. kafka负责提供数据给下游消费。\n4. storm计算汇聚指标结果并落到es。\n5. storm抽取trace数据并落到es，这是为了提供比较复杂的查询。\n   比如通过时间维度查询调用链，可以很快查询出所有符合的traceID，\n   根据这些traceID再去 Hbase 查数据就快了。\n6. logstash将kafka原始数据拉取到hbase中。hbase的rowkey为traceID，\n根据traceID查询是很快的。\n
+
+@enduml

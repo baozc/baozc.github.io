@@ -1,0 +1,35 @@
+server.1=zk1:2888:3888
+server.2=zk2:2890:3890
+server.3=zk3:2891:3891
+
+server.1=zk1:2889:3889
+server.2=zk2:2888:3888
+server.3=zk3:2891:3891
+
+server.1=zk1:2889:3889
+server.2=zk2:2890:3890
+server.3=zk3:2888:3888
+
+server.1=192.168.26.92:2788:3788
+server.2=localhost:2888:3888
+server.3=192.168.182.141:2889:3889
+
+server.1=192.168.26.92:2788:3788
+server.2=192.168.182.141:2887:3887
+server.3=localhost:2888:3888
+
+
+
+docker run -d -p 2182:2181 -p 2889:2888 -p 3889:3888 -v /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:rw -v ~/logs/1:/logs --name zk1 --network zk zookeeper:3.4.13
+
+docker run -d -p 2183:2181 -p 2890:2888 -p 3890:3888 -v /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:rw -v ~/logs/2:/logs --name zk2 --network zk zookeeper:3.4.13
+
+docker run -d -p 2184:2181 -p 2891:2888 -p 3891:3888 -v /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:rw -v ~/logs/3:/logs --name zk3 --network zk zookeeper:3.4.13
+
+--------------
+
+docker run -d -p 2182:2181 -p 2889:2888 -p 3889:3888 -v /private/var/db/timezone/tz/2018i.1.0/zoneinfo/Asia/Shanghai:/etc/localtime:rw -v ~/logs/1:/logs --name zk1 --network zk zookeeper:3.4.13
+
+docker run -d -p 2183:2181 -p 2890:2888 -p 3890:3888 -v /private/var/db/timezone/tz/2018i.1.0/zoneinfo/Asia/Shanghai:/etc/localtime:rw -v ~/logs/2:/logs --name zk2 --network zk zookeeper:3.4.13
+
+docker run -d -p 2184:2181 -p 2891:2888 -p 3891:3888 -v /private/var/db/timezone/tz/2018i.1.0/zoneinfo/Asia/Shanghai:/etc/localtime:rw -v ~/logs/3:/logs --name zk3 --network zk zookeeper:3.4.13

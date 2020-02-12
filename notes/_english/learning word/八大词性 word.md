@@ -1,0 +1,11 @@
+| 单词         | 音标            | 翻译   | 缩写 |
+| ------------ | --------------- | ------ | ---- |
+| noun         | /naʊn/          | 名词   | n    |
+| pronoun      | /'pronaʊn/      | 代名词 | pron |
+| verb         | /vɝb/           | 动词   | v    |
+| adverb       | /'ædvɝb/        | 副词   | adv  |
+| adjective    | /'ædʒɪktɪv/     | 形容词 | adj  |
+| preposition  | /,prɛpə'zɪʃən/  | 介系词 | prep |
+| conjunction  | /kən'dʒʌŋkʃən/  | 连接词 | conj |
+| interjection | /,ɪntɚ'dʒɛkʃən/ | 感叹词 | int  |
+| article      | /'ɑrtɪkl/       | 定冠词 | art  |

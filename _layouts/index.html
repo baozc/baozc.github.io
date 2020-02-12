@@ -1,0 +1,26 @@
+---
+layout: page
+---
+{{ content }}
+
+
+<h1></h1>
+
+{% for c in site.collections %}
+
+<h2>label - {{c.label}} - {{c.tags}} - {{c.category}} - {{c.date | date_to_string}}</h2>
+<ul>
+
+    {% for doc in c.docs %}
+    <li>
+      <a href="{{ doc.url }}">{{ doc.title }} - {{doc.date | date_to_string}}</a>
+    </li>
+    {% endfor %}
+    <li>
+      <a href="/archive">
+        All {{ site.posts.size }} posts...
+      </a>
+    </li>
+</ul>
+
+{%endfor%}

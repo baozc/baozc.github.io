@@ -1,0 +1,4 @@
+- `docker load < jdk8.tar.gz(镜像压缩包)` 导入镜像包到 docer 镜像仓库
+- `docker build -t 新的镜像名称:版本号 .`，构建 docker 镜像
+- `docker run -d 后台运行 -p 主机端口:容器端口 --name='容器名称' -v 主机目录:容器目录`
+    - `-v` 挂载主机目录到容器里
