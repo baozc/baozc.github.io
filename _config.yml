@@ -364,7 +364,7 @@ page:
             document.getElementById("run_time_hour").innerHTML = setzero(hrsold);
             document.getElementById("run_time_minute").innerHTML = setzero(minsold);
             document.getElementById("run_time_second").innerHTML = setzero(seconds);
-          }, 1000, "03/20/2013 12:59:25") // 这是我第一篇CSDN博客的时间
+          }, 1000, "03/20/2013 12:59:25") // 这是我第一篇CSDN博客的时间，月/日/年 时:分:秒
         </script>
       </div>
       <div>
