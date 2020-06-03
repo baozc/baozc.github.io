@@ -52,3 +52,7 @@ charles代理后
 
 ### 手机端https证书下载
 `help - SSL Proxying - Install Charles Root Certificate on a Mobile Device`
+
+### [ map remote setting][23aed51a]
+
+  [23aed51a]: https://blog.csdn.net/sofia_m/article/details/85008019 "map remote setting"

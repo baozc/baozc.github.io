@@ -57,6 +57,7 @@ https://www.jianshu.com/p/6761199bedba
     ```
 3. 使用`ssh tx`就会登录到远程主机
    - 相比较原先`ssh root@49.232.57.150`方便许多
+   - `scp seaboxdata.zip tx:~`
 
 - 注意：
 

@@ -830,4 +830,6 @@ collections_dir: notes
 collections:
     java:
       # date: 2019-10-13
-      output: true
+        output: true
+    mysql:
+        output: true
