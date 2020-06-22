@@ -2,7 +2,7 @@
 
 　　scripts 在执行之前，最怕的就是出现问题了！那么我们如何 debug 呢？有没有办法不需要透过直接执行该 scripts 就可以来判断是否有问题呢！？呵呵！ 当然是有的！我们就直接以 bash 的相关参数来进行判断吧！
 
-```bash
+```bash    
 [root@linux ~]$ sh [-nvx] scripts.sh
 参数：
 -n ：不要执行 script，仅查询语法的问题；

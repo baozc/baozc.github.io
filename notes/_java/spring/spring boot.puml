@@ -1,0 +1,122 @@
+@startuml
+
+start
+partition 构造函数 {
+    :设置resourceLoader、\nprimarySources、\nwebApplicationType;
+
+     partition setInitializers {
+
+        :loadSpringFactories(classLoader);
+        note right
+        1. 获取所有jar包下META-INF/spring.factories文件
+        2. 获取spring.factories中所有键值对
+        3. 加载到缓存中
+        end note
+
+        :**获取ApplicationContextInitializer所有实例配置**
+        SpringFactoriesLoader.loadFactoryNames(type, classLoader);
+
+        :**创建所有ApplicationContextInitializer实例**
+        createSpringFactoriesInstances(type, parameterTypes, classLoader, args, names);
+
+        :getSpringFactoriesInstances(**ApplicationContextInitializer**.class);
+
+        :**设置初始化器**
+        this.initializers.addAll(initializers);
+     }
+
+     partition setListeners {
+        :**同上，区别是获取ApplicationListener的所有实例**;
+        :**设置监听器**
+        this.listeners.addAll(listeners);
+     }
+     note right
+     设置初始化器和监听器
+     end note
+}
+
+:run();
+
+:**设置计时器**
+StopWatch stopWatch = new StopWatch()
+stopWatch.start();
+
+:创建**SpringApplicationRunListeners**,
+获取**SpringApplicationRunListener**接口实例，
+只有一个**EventPublishingRunListener**监听器;
+
+note right
+创建SpringApplicationRunListeners时，有两个参数，
+一个是logger，一个是SpringApplicationRunListener的实例，
+即：EventPublishingRunListener。
+
+创建EventPublishingRunListener时，使用有参构造，参数为
+EventPublishingRunListener(SpringApplication application, String[] args),
+new Class<?>[] { SpringApplication.class, String[].class }
+
+EventPublishingRunListener会保存springApplication的实例和
+对应的listeners即监听器集合
+
+在触发**SpringApplicationRunListeners**事件时，
+会执行**EventPublishingRunListener**的事件，
+EventPublishingRunListener对应事件会执行
+SpringApplication中对应的监听器集合的对应事件
+;
+end note
+:**同setInitializers loadSpringFactories(classLoader)**;
+
+partition startingEvent {
+    :listeners.starting();
+
+    :org.springframework.boot.context.logging.LoggingApplicationListener;
+    note
+    spring-boot
+    end note
+    :org.springframework.boot.autoconfigure.BackgroundPreinitializer;
+    note
+    spring-boot-autoconfigure
+    end note
+    :org.springframework.boot.context.config.DelegatingApplicationListener;
+    :org.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener;
+}
+
+:**获取运行参数**
+ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);;
+
+partition enviroment {
+    :ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);;
+    :getOrCreateEnvironment;
+    note
+    ConfigurableEnvironment environment 不为空直接返回
+    为空时，根据webApplicationType类型来创建environment,
+    servlet创建的是StandardServletEnvironment
+    end note
+
+    :configureEnvironment(environment, applicationArguments.getSourceArgs());
+    :listeners.environmentPrepared(environment);
+
+    :configureIgnoreBeanInfo(environment);
+}
+
+
+:**指印banner**
+Banner printedBanner = printBanner(environment);
+
+:context = createApplicationContext();
+note
+创建applicationConetext，根据nwebApplicationType来创建
+分别对应：
+SERVLET: AnnotationConfigServletWebServerApplicationContext
+REACTIVE: AnnotationConfigReactiveWebServerApplicationContext
+DEFAULT: AnnotationConfigApplicationContext
+end note
+
+:**创建异常对象**
+getSpringFactoriesInstances(SpringBootExceptionReporter.class,
+new Class[] { ConfigurableApplicationContext.class }, context);
+
+
+partition prepareContext {
+    :prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+}
+@enduml
